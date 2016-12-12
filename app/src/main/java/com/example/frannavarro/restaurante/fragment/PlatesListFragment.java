@@ -21,6 +21,7 @@ import android.widget.ListView;
 import com.example.frannavarro.restaurante.R;
 import com.example.frannavarro.restaurante.activity.AddPlateListActivity;
 import com.example.frannavarro.restaurante.activity.TableActivity;
+import com.example.frannavarro.restaurante.adapter.PlateListAdapter;
 import com.example.frannavarro.restaurante.model.Data;
 import com.example.frannavarro.restaurante.model.Plate;
 import com.example.frannavarro.restaurante.model.Plates;
@@ -85,7 +86,9 @@ public class PlatesListFragment extends Fragment {
             }
         });
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,getPlates());
+        Table t = (Table) getArguments().getSerializable(ARG_TABLE);
+
+        PlateListAdapter adapter = new PlateListAdapter(getActivity(),R.layout.view_plate_list_item,t.getPlates());
 
         plateList.setAdapter(adapter);
 
@@ -103,19 +106,7 @@ public class PlatesListFragment extends Fragment {
         return root;
     }
 
-    private LinkedList<String> getPlates() {
 
-        LinkedList<String> platesList = new LinkedList<>();
-        LinkedList<Plate> platesArray = ((Table) this.getArguments().getSerializable(ARG_TABLE)).getPlates();
-
-        for (int i = 0; i < platesArray.size(); i++) {
-            platesList.add(platesArray.get(i).getName());
-        }
-
-        return platesList;
-
-
-    }
 
 
     @Override
@@ -155,7 +146,8 @@ public class PlatesListFragment extends Fragment {
 
             getArguments().putSerializable(ARG_TABLE,Data.getTables().get(t.getNumber() - 1));
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,getPlates());
+            t = (Table) this.getArguments().getSerializable(ARG_TABLE);
+            PlateListAdapter adapter = new PlateListAdapter(getActivity(),R.layout.view_plate_list_item,t.getPlates());
 
             plateList.setAdapter(adapter);
 
