@@ -47,4 +47,12 @@ public class Table  implements Serializable{
     public void addPlate(Plate p){
         plates.add(p);
     }
+
+    public float getBill(){
+        float total = 0;
+        for (int i = 0; i< plates.size();i++){
+            total += plates.get(i).getPrice();
+        }
+        return total;
+    }
 }

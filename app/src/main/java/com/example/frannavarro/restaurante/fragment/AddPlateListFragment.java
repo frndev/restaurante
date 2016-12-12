@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.frannavarro.restaurante.R;
+import com.example.frannavarro.restaurante.activity.PlateListActivity;
+import com.example.frannavarro.restaurante.activity.TableActivity;
+import com.example.frannavarro.restaurante.adapter.PlateListAdapter;
 import com.example.frannavarro.restaurante.model.Plate;
 import com.example.frannavarro.restaurante.model.Plates;
 import com.example.frannavarro.restaurante.model.Table;
@@ -43,7 +46,9 @@ public class AddPlateListFragment extends Fragment {
 
         ListView listView = (ListView) root.findViewById(android.R.id.list);
 
-        ArrayAdapter adapter = new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,getPlates());
+        Plates plates = (Plates) getArguments().getSerializable(ARGS_PLATES);
+
+        PlateListAdapter adapter = new PlateListAdapter(getActivity(),R.layout.view_plate_list_item,plates.getPlates());
 
         listView.setAdapter(adapter);
 
@@ -60,20 +65,7 @@ public class AddPlateListFragment extends Fragment {
         return root;
     }
 
-    private LinkedList<String> getPlates() {
 
-        LinkedList<String> platesList = new LinkedList<>();
-        Plates plates = (Plates) this.getArguments().getSerializable(ARGS_PLATES);
-        LinkedList<Plate> plist = plates.getPlates();
-
-        for (int i = 0; i < plist.size(); i++) {
-            platesList.add(plist.get(i).getName());
-        }
-
-        return platesList;
-
-
-    }
 
     public void setOnPlateSelectedListener(PlatesListFragment.OnPlateSelectedListener onPlateSelectedListener){
         this.onPlateSelectedListener = onPlateSelectedListener;

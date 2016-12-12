@@ -20,7 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.PlateDetailActivity" />
-        <activity android:name=".activity.BillActivity" />
         <activity
             android:name=".activity.AddPlateListActivity"
             android:label="@string/title_activity_add_plate_list"

@@ -136,7 +136,7 @@ public class TableListFragment extends Fragment {
 
     private void updateTable(int number) {
 
-        final LinkedList<Table> tables = new LinkedList<>();
+
         Data.removeAll();
         for (int i = 1; i<= number;i++){
 
@@ -144,7 +144,7 @@ public class TableListFragment extends Fragment {
 
         }
 
-        adapter = new TableAdapter(getActivity(),R.layout.view_table_item,tables);
+        adapter = new TableAdapter(getActivity(),R.layout.view_table_item,Data.getTables());
         gridView.setAdapter(adapter);
 
     }

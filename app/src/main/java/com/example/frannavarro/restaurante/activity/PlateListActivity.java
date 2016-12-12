@@ -1,6 +1,8 @@
 package com.example.frannavarro.restaurante.activity;
 
+import android.app.AlertDialog;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -60,10 +62,18 @@ public class PlateListActivity extends AppCompatActivity implements PlatesListFr
 
     @Override
     public void onBillSelected(Table table) {
-        Intent detail = new Intent(getApplicationContext(),BillActivity.class);
 
-        detail.putExtra(TableActivity.TABLE_EXTRA,table);
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle(R.string.cuenta_dialog_title);
+        alertDialog.setMessage(String.format(getString(R.string.bill_format),table.getBill()));
+        alertDialog.setNeutralButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
 
-        startActivity(detail);
+                dialog.cancel();
+
+            }
+        });
+
+        alertDialog.show();
     }
 }

@@ -12,4 +12,6 @@
     <string name="title_activity_add_plate_list">addPlateListActivity</string>
     <string name="action_settings">Settings</string>
     <string name="price_format">%.2f €</string>
+    <string name="cuenta_dialog_title">La cuenta</string>
+    <string name="bill_format">El total a pagar es de %.2f €</string>
 </resources>
