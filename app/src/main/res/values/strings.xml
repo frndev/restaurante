@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Restaurante</string>
+    <string name="table_format">Mesa %d</string>
+    <string name="calcular_cuenta">La cuenta</string>
+    <string name="detalle_title">Detalle</string>
+    <string name="title_activity_bill">BillActivity</string>
+    <string name="factura_title">Factura</string>
+    <string name="ajustes_title">Ajustes</string>
+    <string name="settings_table_number_textview">Seleccione el número de mesas</string>
+    <string name="error">error</string>
+    <string name="plates_download_error">Ha ocurrido un error en la descarga</string>
+    <string name="title_activity_add_plate_list">addPlateListActivity</string>
+    <string name="action_settings">Settings</string>
+</resources>
