@@ -63,10 +63,12 @@ public class TableListFragment extends Fragment {
 
         gridView = (GridView) root.findViewById(R.id.table_list_fragment);
 
-        // Plates plates = new Plates();
-        Data.addTable(new Table());
-        Data.addTable(new Table());
-        Data.addTable(new Table());
+        if (Data.getTables().size() == 0){
+            Data.addTable(new Table());
+            Data.addTable(new Table());
+            Data.addTable(new Table());
+        }
+
 
         adapter = new TableAdapter(getActivity(),R.layout.view_table_item,Data.getTables());
 

@@ -11,4 +11,5 @@
     <string name="plates_download_error">Ha ocurrido un error en la descarga</string>
     <string name="title_activity_add_plate_list">addPlateListActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="price_format">%.2f €</string>
 </resources>

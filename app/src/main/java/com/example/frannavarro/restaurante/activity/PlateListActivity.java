@@ -15,6 +15,7 @@ import com.example.frannavarro.restaurante.model.Table;
 public class PlateListActivity extends AppCompatActivity implements PlatesListFragment.OnPlateSelectedListener,PlatesListFragment.OnMenuItemSelectedListener {
 
 
+    public static final String PLATE_EXTRA = "PLATE_EXTRA";
 
     private Table table;
     private Plates plates;
@@ -51,8 +52,7 @@ public class PlateListActivity extends AppCompatActivity implements PlatesListFr
 
         Intent detail = new Intent(getApplicationContext(),PlateDetailActivity.class);
 
-        detail.putExtra(TableActivity.TABLE_EXTRA,table);
-        detail.putExtra(TableActivity.PLATES_EXTRA,plates);
+        detail.putExtra(PLATE_EXTRA,plate);
 
         startActivity(detail);
 

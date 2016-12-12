@@ -79,7 +79,7 @@ public class TableActivity extends AppCompatActivity implements TableListFragmen
 
                 try {
 
-                    url = new URL("http://www.mocky.io/v2/584dc2740f0000ce1ed40fb7");
+                    url = new URL("http://www.mocky.io/v2/584e69ff12000045093949c2");
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     con.connect();
                     int responseLength = con.getContentLength();
@@ -104,6 +104,7 @@ public class TableActivity extends AppCompatActivity implements TableListFragmen
                     for (int i = 0; i < platesArray.length(); i++) {
                         JSONObject plateObject = platesArray.getJSONObject(i);
                         String name = plateObject.getString("name");
+                        String image = plateObject.getString("image");
                         JSONArray ingredientsArray = plateObject.getJSONArray("ingredients");
                         String[] ingredients = new String[ingredientsArray.length()];
                         for (int j = 0; j < ingredientsArray.length(); j++) {
@@ -112,7 +113,7 @@ public class TableActivity extends AppCompatActivity implements TableListFragmen
                         float price = (float) plateObject.getDouble("price");
 
 
-                        plates.addPlate(new Plate(name, ingredients, price));
+                        plates.addPlate(new Plate(name,image, ingredients, price));
                     }
                     Thread.sleep(3000);
 

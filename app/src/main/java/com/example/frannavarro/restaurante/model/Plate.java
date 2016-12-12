@@ -9,11 +9,13 @@ import java.io.Serializable;
 public class Plate  implements Serializable{
 
     private String name;
+    private String image;
     private String[] ingredients;
     private float price;
 
-    public Plate(String name, String[] ingredients, float price) {
+    public Plate(String name, String image, String[] ingredients, float price) {
         this.name = name;
+        this.image = image;
         this.ingredients = ingredients;
         this.price = price;
     }
@@ -40,5 +42,13 @@ public class Plate  implements Serializable{
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

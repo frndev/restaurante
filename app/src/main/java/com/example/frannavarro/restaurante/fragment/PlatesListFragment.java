@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.frannavarro.restaurante.R;
@@ -41,7 +42,7 @@ public class PlatesListFragment extends Fragment {
     private OnMenuItemSelectedListener onMenuItemSelectedListener;
     private ListView plateList;
 
-    private FloatingActionButton addPlateButton;
+    private Button addPlateButton;
 
     public static PlatesListFragment newInstance(Table t,Plates p) {
         PlatesListFragment fragment = new PlatesListFragment();
@@ -72,7 +73,7 @@ public class PlatesListFragment extends Fragment {
 
         plateList = (ListView) root.findViewById(android.R.id.list);
 
-        addPlateButton = (FloatingActionButton) root.findViewById(R.id.add_plate);
+        addPlateButton = (Button) root.findViewById(R.id.add_plate_button);
 
         addPlateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,8 +93,8 @@ public class PlatesListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 if (PlatesListFragment.this.onPlateSelectedListener != null){
-                    Plates p = (Plates) PlatesListFragment.this.getArguments().getSerializable(ARG_PLATES);
-                    PlatesListFragment.this.onPlateSelectedListener.onPlateSelected(p.getPlates().get(position),position);
+                    Table t = (Table) PlatesListFragment.this.getArguments().getSerializable(ARG_TABLE);
+                    PlatesListFragment.this.onPlateSelectedListener.onPlateSelected(t.getPlates().get(position),position);
                 }
 
             }
